@@ -1,8 +1,8 @@
-Resolución del ejercicio N°13 de la unidad 2 de programación 2.
-Este programa simula un sistema de control de acceso electrónico.
-Autentica credenciales de identificación por radiofrecuencia para validar y autorizar o denegar la entrada de empleados a distintas zonas protegidas según sus niveles de permiso preestablecidos.
+Este programa está diseñado para modelar y gestionar el control de accesos corporativos o de seguridad física mediante **tarjetas RFID**, un **lector de tarjetas** y un **controlador de acceso** centralizado utilizando programación orientada a objetos (por ejemplo, en Java).
 
-Clases utilizadas:
-Credencial (o TarjetaRFID)
-ControladorDeAcceso
-LectorTarjetas
+A continuación se detalla exactamente lo que hace cada parte del programa:
+
+* **Define la clase `TarjetaRFID` (o `Credencial`):** Modela la identificación del empleado encapsulando sus atributos principales: el código único de identificación (`codigoUnico`) y el nivel o rango de acceso autorizado (`nivelAcceso`).
+* **Diseña la clase `ControladorDeAcceso`:** Implementa la lógica de seguridad centralizada que contiene una base de datos interna de permisos (por ejemplo, un mapa o lista de tarjetas asociadas a zonas permitidas) y expone el método `verificarAcceso(TarjetaRFID tarjeta, String zona)`, el cual evalúa si la credencial cuenta con los privilegios necesarios y retorna un valor booleano (`true` o `false`).
+* **Implementa la clase `LectorTarjetas`:** Modela el dispositivo físico de escaneo que mantiene una asociación o referencia directa con el `ControladorDeAcceso`, recibiendo la interacción física simulada del usuario (la presentación de la tarjeta) y delegando la validación al controlador.
+* **Ejecuta la prueba (`main`):** Instancia el controlador de acceso cargando su base de datos interna de permisos, crea una tarjeta con permisos válidos y otra sin autorización, y simula el flujo completo de mensajes a través del lector de tarjetas, imprimiendo por consola el resultado de cada intento de acceso (permitido o denegado).
